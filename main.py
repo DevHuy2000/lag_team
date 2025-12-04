@@ -79,7 +79,7 @@ class FFClient(threading.Thread):
 
     def parse_login_response(self, serialized_data):
         try:
-            res = MajorLg.MajorLoginRes()
+            res = major.MajorLoginRes()
             res.ParseFromString(serialized_data)
             timestamp_obj = Timestamp()
             timestamp_obj.FromNanoseconds(res.kts)
