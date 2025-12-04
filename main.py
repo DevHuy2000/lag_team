@@ -17,7 +17,7 @@ from flask import Flask, request, jsonify
 
 # --- Import Libraries Local (Bắt buộc phải có file này trên Render) ---
 try:
-    import MajorLg
+    import major
     from utils import create_protobuf_packet 
 except ImportError:
     # Trên Render, logs sẽ hiện lỗi này nếu thiếu file
@@ -169,7 +169,7 @@ class FFClient(threading.Thread):
             
             count = 0
             # Giới hạn vòng lặp để tránh treo server quá lâu
-            while self.is_running and count < 500: 
+            while self.is_running and count < 800: 
                 try:
                     self.sock.send(pkt_join)
                     self.sock.send(pkt_lag)
